@@ -1,0 +1,104 @@
+.container {
+  color: rgb(186, 194, 184);
+  border: 1px solid red;
+  padding: 2rem;
+}
+
+.cardcontainer{
+  position: relative;
+  cursor: pointer;
+  width: 18rem;
+  height:  18rem;
+  text-align: center;
+  opacity: .94;
+}
+
+.cardcontainer:hover,
+.cardcontainer:focus{
+  opacity: 1;
+  border: 2px solid rgb(37, 37, 37);
+}
+
+.card{
+  border-radius: 5px;
+  height: 100%;
+  transition: all 300ms ease-out;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 0;
+  opacity: .89;
+  padding: 13px 21px;
+}
+
+.card:before,
+.card:after{
+  content: '';
+  position: absolute;
+  left:0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: .21;
+  transition: transform 300ms ease;
+  transform: scale(.98);
+}
+
+.card:before{
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.cardcontainer:hover .card:before,
+.cardcontainer:hover .card:after,
+.cardcontainer:focus .card:before,
+.cardcontainer:focus .card:after{
+  opacity: .34;
+  transform: scale(1);
+}
+
+.cardcontainer .card:before{
+      background-image: url('https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/pia22474-2000.jpg?itok=cajl1lYH');
+}
+
+.card:after{
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 50%,rgba(0,0,0,0.89) 100%);
+}
+
+.card h4{
+  text-align: left;
+  font-size: 18px;
+  font-weight:400;
+  transform: translateY(5px);
+  transition: transform 450ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  max-width: 320px;
+  outline: 1px solid transparent;
+}
+
+.card:hover ~ .card h4,
+.card:focus ~ .card h4{
+  transform: translateZ(144px);
+}
+
+.card > span{
+  font-size: 34px;
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: all 300ms ease;
+}
+
+.cardcontainer:hover > .card > h4,
+.cardcontainer:focus > .card > h4{
+  transform: translateY(-13px);
+}
+
+.cardcontainer:hover > .card > span,
+.cardcontainer:focus > .card > span{
+ opacity: 1;
+    transform: translateX(3px);
+  animation: slideRight 300ms ease;
+}
